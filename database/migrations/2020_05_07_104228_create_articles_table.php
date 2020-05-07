@@ -20,7 +20,9 @@ class CreateArticlesTable extends Migration
             $table->text('detail');
             $table->timestamp('published_at');
             $table->tinyInteger('active');
+            // add foreignkey
             $table->unsignedBigInteger('user_id');
+            // relationship to user table
             $table->foreign('user_id')->references('id')->on('users')
                     ->onDelete('cascade')
                     ->onUpdate('cascade');
